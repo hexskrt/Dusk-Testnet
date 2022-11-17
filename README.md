@@ -59,7 +59,7 @@ cd rusk-wallet0.12.0-linux-x64
 
 ## 2. Create Wallet
 
-- Then if the words 'Create New Wallet' appear, click Enter
+- Choose 'Create New Wallet' , Press Enter
 - Enter Your Password
 - Enter Password Again
 - Copy and Save Your Pharse
@@ -97,7 +97,7 @@ Example:
 - Fill This Form For Faucet : https://docs.google.com/forms/d/e/1FAIpQLScxABRnszbBEaTZAIg2TwfJVIq0kRggy8QK2MRBTO7vuyP_Ug/viewform
 - Paste your Dusk Address
 - Upload your File.cpk 
-- Gift Address, Fill in the ETH Metamask Address (This is To Receive The Testnet Reward Later)
+- Fill Reward address with your ETH Metamask Address (This is To Receive The Testnet Reward Later)
 - Submit Form
 
 Noted: File.cpk is located in `.dusk`
