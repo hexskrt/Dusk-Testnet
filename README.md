@@ -102,4 +102,161 @@ Example:
 
 Noted: File.cpk is located in `.dusk`
 
-That's all for now, wait for the next step
+## 4. Making Sure the Faucet Is Landing
+
+- Open your Vps
+- To Confirm Whether the Faucet Balance Has Landed, Run the Command Below :
+
+```
+cd rusk-wallet0.12.0-linux-x64
+./rusk-wallet
+```
+
+- Down Direction Select 'Replace your wallet with a lost one using the recovery phrase' and 'enter'
+- Put your Pharse Wallet 'Enter'
+- Enter your Password 2x and 'Enter'
+- Back to VPS Downward Select 'Back' and 'Enter'
+- Down Again Select 'Exit' and 'Enter'
+
+## 5. Instal Rusk-Node
+
+<p align="center">
+  <img height="auto" width="auto" src="https://user-images.githubusercontent.com/38981255/202716202-a9687681-6daa-4a5f-b1d7-299f0d72e2f7.JPG">
+</p>
+
+```
+cd
+curl --proto '=https' --tlsv1.2 -sSf https://dusk-infra.ams3.digitaloceanspaces.com/rusk/itn-installer.sh | sh
+```
+
+## 6. Open Port (For Azure Users the same DO usually Open Port on Your VPS Dashboard Website) if Contabo Just Paste it directly on your VPS
+
+<p align="center">
+  <img height="auto" width="auto" src="https://user-images.githubusercontent.com/38981255/202716199-ff3752f6-76a4-4cab-965b-3a13b7f12623.jpg">
+</p>
+
+```
+sudo ufw allow 22
+sudo ufw allow 9000:9005/udp
+sudo ufw enable
+```
+
+## 7. Set password 'consensus.keys' Run
+
+<p align="center">
+  <img height="auto" width="auto" src="https://user-images.githubusercontent.com/38981255/202716195-647652a1-e758-477a-850e-7c002a0102f9.jpg">
+</p>
+
+```
+cd /root/.dusk/rusk-wallet
+mv *.key /opt/dusk/conf/consensus.keys
+```
+```
+echo 'DUSK_CONSENSUS_KEYS_PASS=<insert_your_password>' > /opt/dusk/services/dusk.conf
+```
+
+'<insert_your_password>' = fill in with your password, just like the same that just started to create a wallet
+
+## 8. Start Node
+
+<p align="center">
+  <img height="auto" width="auto" src="https://user-images.githubusercontent.com/38981255/202716190-b364ac77-2424-4693-b7af-37157cc9a2e9.jpg">
+</p>
+
+```
+service rusk start
+service dusk start
+```
+
+If It Doesn't Happen Anything That's Means Right
+
+## 9. Check Rusk and Dusk Logs (To Ensure It's Working)
+
+### Check rusk logs
+
+<p align="center">
+  <img height="auto" width="auto" src="https://user-images.githubusercontent.com/38981255/202716183-094af1f4-eab6-4f95-a021-45ed26c4406d.jpg">
+</p>
+
+```
+tail -f /var/log/rusk.log
+```
+
+### Check dusk logs
+
+<p align="center">
+  <img height="auto" width="auto" src="https://user-images.githubusercontent.com/38981255/202716177-8a814b33-8205-40ef-a4be-0fe6ee9d997c.jpg">
+</p>
+
+```
+tail -f /var/log/dusk.log
+```
+
+
+## 10. Stake Token
+
+<p align="center">
+  <img height="auto" width="auto" src="https://user-images.githubusercontent.com/38981255/202719383-9e0c6c50-157a-4cdb-a2ee-6b55cc9c26f5.JPG">
+</p>
+
+```
+cd
+cd rusk-wallet0.12.0-linux-x64
+./rusk-wallet
+```
+
+- Select 'Access Wallet' and 'Enter'
+- Enter Your Password and 'Enter'
+- Then 'Enter' again
+- Direction Down Select 'Stake Dusk' 
+- Insert the amount of DUSK to stake: contents '25000' and 'Enter'
+- Insert the gas limit for this transaction: contents '2000000000 and 'Enter'
+- Insert the gas price for this transaction: Let It Go 'Enter' Directly
+- Type 'y' and 'Enter'
+- Done
+
+## Checking Staking If Already Works
+
+<p align="center">
+  <img height="auto" width="auto" src="https://user-images.githubusercontent.com/38981255/202719371-a190234a-6fa5-4174-b8c9-1918c0ebbd3a.JPG">
+</p>
+
+```
+./rusk-wallet
+```
+
+- Select 'Access Wallet' and 'Enter'
+- Enter Your Password and 'Enter'
+- Then 'Enter' again
+- Down Direction Select 'Check existing stake' and 'Enter'
+- Done
+
+## 12. Other Useful Commands
+
+## Running the service
+
+### Running service rusk
+
+```
+service rusk start
+```
+
+### Running dusk service
+
+```
+service dusk start
+```
+
+## Stop the service
+
+### Stop rusk service
+
+```
+service rusk stop
+```
+
+### Stop dusk service
+
+```
+service dusk stop
+```
